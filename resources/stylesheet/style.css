@@ -1,6 +1,19 @@
-body{
+.content{
+	padding-top: 50%;
+}
+
+.tagline-verse{
 	font-family: 'Roboto Slab', serif;
 	font-size: 22px;
-	padding-top: 92%;
+	opacity: .3;
+	color: #D63333;
+}
 
+/*.bold{
+	font-weight: 700;
+	opacity: 1;
+}*/
+
+.tagline-verse:hover{
+	opacity: 1;
 }
