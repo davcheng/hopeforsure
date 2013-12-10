@@ -6,6 +6,12 @@
         <h1> {{post.title}} </h1>
     </header>
     <img class="feature" src={{post.content|safe}}></img>
+
+    <div class="likes">
+        <a href="/{{post.slug}}/upvote/" method="post">Like!</a>
+    </div>
+    Number of likes {{post.likes}}
+
 	<div class="social-media-sharing">
           <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style">

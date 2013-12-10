@@ -77,6 +77,16 @@ body{
 	float: left;
 }
 
+.likes{
+	background: #990000;
+	color: #FFFFFF;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	width:100px;
+	text-align: center;
+	margin: 5px;
+}
+
 a{
 	text-decoration: none;
 	color: inherit;

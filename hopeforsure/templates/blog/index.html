@@ -5,7 +5,7 @@
     {% for post in posts %}
         <div class="post-container">
             <a class="post-title-box" href="{{post.get_absolute_url}}">
-                <div class="post-title">
+                <div class="post-title" id="{{post.title}}">
                     {{post.title}}
                 </div>
             </a>
@@ -15,9 +15,9 @@
                 </a>
             </div>
             <div class="likes">
-                <a href="{{post.slug}}/upvote/" method="post">Vote Up</a>
-                Number of likes {{post.likes}}
+                <a href="/{{post.slug}}/upvote/" method="post">Like!</a>
             </div>
+            Number of likes {{post.likes}}
         </div>
     {% endfor %}
 

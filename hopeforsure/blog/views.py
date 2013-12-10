@@ -25,7 +25,8 @@ def about(request):
     return render(request, 'blog/about.html')
 
 def upvote(request, slug):
-	s = get_object_or_404(Post, slug=slug)
-	s.likes += 1
-	s.save()
-	return render_to_response('blog/index.html', {'posts': s, "likes": s.likes})
+    posts = Post.objects.filter(published=True)
+    s = get_object_or_404(Post, slug=slug)
+    s.likes += 1
+    s.save()
+    return render(request, 'blog/index.html', {'posts': posts, 'post' : s})
