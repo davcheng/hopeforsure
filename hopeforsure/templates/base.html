@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<!--         <link rel="stylesheet" type="text/css" href="http://davcheng.com/static/misc/style.css"> -->
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}style.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+        <title>
+            Hope For Sure
+        </title>
+
+
+        </head>
+
+    <body>
+        <div class="masthead-container">
+            <a href="/">
+                <div class="tagline-verse">
+                    "Now faith is being <span class="bold">sure of what we hope for</span> and certain of what we do not see." - Hebrews 11:1 
+                </div>
+            </a>
+        </div>
+        <div class="menu-container">
+            <a href="/">
+                <div class="menu-item">
+                    Home
+                </div>
+            </a>
+            <a href="/top/">
+                <div class="menu-item">
+                    Popular
+                </div>
+            </a>
+            <a href="/random.html">
+                <div class="menu-item">
+                    Random
+                </div>  
+            </a>
+            <a href="/submit.html">
+                <div class="menu-item">
+                    Submit
+                </div>     
+            </a>
+            <a href="/about/">
+                <div class="menu-item">
+                    About
+                </div>    
+            </a>     
+        </div>
+        <div class="post-container">
+            {% block content %}
+
+            {% endblock %}
+	    </div>
+        <div class="widget-container">
+            {% block widget %}
+
+            {% endblock %}
+        </div>
+    </body>
+    <footer>
+        <div class="tagline-verse">
+            "Now faith is being <span class="bold">sure of what we hope for</span> and certain of what we do not see." - Hebrews 11:1 
+        </div>
+    </footer>
+</html> 

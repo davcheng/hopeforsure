@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--loop through posts-->
+    {% for post in posts %}
+        <div class="post-container">
+            <a class="post-title-box" href="{{post.get_absolute_url}}">
+                <div class="post-title">
+                    {{post.title}}
+                </div>
+            </a>
+            <div class="post-preview-container">
+                <a href="{{post.get_absolute_url}}">
+                    <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
+                </a>
+            </div>
+            <div class="likes">
+                <a href="{{post.slug}}/upvote/" method="post">Vote Up</a>
+                Number of likes {{post.likes}}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
+
+{% block widget %}
+        <!--try to loop through post labels-->
+        <div class="widget">
+            <div class="widget-title">
+                Share on Facebook!
+            </div>
+        </div>
+{% endblock %}
