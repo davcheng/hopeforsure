@@ -14,6 +14,10 @@
                     <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
                 </a>
             </div>
+            <div class="likes">
+                <a href="/{{post.slug}}/upvote/" method="post">Like!</a>
+            </div>
+            Number of likes {{post.likes}}
         </div>
     {% endfor %}
 

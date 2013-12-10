@@ -1,5 +1,5 @@
 # Create your views here.
-from django.shortcuts import render, get_object_or_404, render_to_response
+from django.shortcuts import render, get_object_or_404
 from blog.models import Post
  
 def index(request):
@@ -30,3 +30,8 @@ def upvote(request, slug):
     s.likes += 1
     s.save()
     return render(request, 'blog/index.html', {'posts': posts, 'post' : s})
+
+def get_current_path(request):
+    return {
+       'current_path': request.get_full_path()
+     }
