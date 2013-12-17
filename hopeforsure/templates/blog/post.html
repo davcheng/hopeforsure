@@ -7,10 +7,13 @@
     </header>
     <img class="feature" src={{post.content|safe}}></img>
 
-    <div class="likes">
-        <a href="/{{post.slug}}/upvote/" method="post">Like!</a>
+    <div class="like-container">
+        <p>
+            <span class="like-count">{{post.likes}}</span>
+            <a class="like" href="/like/{{post.slug}}/">Like</a>
+            <a class="liked">Nice!</a>
+        </p>
     </div>
-    Number of likes {{post.likes}}
 
 	<div class="social-media-sharing">
           <!-- AddThis Button BEGIN -->

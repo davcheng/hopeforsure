@@ -20,6 +20,7 @@
                 var curr_elem = $(this) ;
                 $(curr_elem).parent().find(".like").hide();
                 $(curr_elem).parent().find(".liked").show();
+                $(curr_elem).parent().attr('class', 'liked-container')
                 $.get($(this).attr('href'), function(data){
                     var likecount_div = $(curr_elem).parent().find(".like-count");
                     likecount_div.text(likecount_div.text()*1+1); 

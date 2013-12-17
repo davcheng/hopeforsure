@@ -1,22 +1,3 @@
-
-#clickmebutton{
-	background-color: white;
-}
-
-#number-of-likes{
-	background: #990000;
-	color: #FFFFFF;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	width:100px;
-	text-align: center;
-	margin: 5px; 
-}
-
-
-
-/*end of test*/
-
 body{
     border-width: 0 1px 1px;
 	border-style: solid;
@@ -79,6 +60,7 @@ body{
 	width: 575px;
 	padding-left: 25px;
 }
+
 .post-title:hover{
 	background-color: #990000; 
 }
@@ -123,6 +105,12 @@ a{
 
 .liked{
 	display: none;
+}
+
+.liked-container{
+	background-color: #FFCCCC;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 }
 
 .tagline-verse{
