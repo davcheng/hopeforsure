@@ -33,5 +33,14 @@
             <div class="widget-title">
                 Share on Facebook!
             </div>
+            {% for post in widget_posts %}
+                <p>
+                    <a href="{{post.get_absolute_url}}">
+                        <img class="post-preview-widget" alt={{post.description}} src={{post.content|safe}}>
+                    </a>
+                    <span class="like-count">{{post.likes}} Likes</span>
+                <p>
+            {% endfor %}
         </div>
+
 {% endblock %}

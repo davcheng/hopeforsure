@@ -131,10 +131,28 @@ a{
 }
 
 .post-preview{
+	width: 250px;
+	margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
+.post-preview-widget{
+	width: 250px;
+	margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
+.post-preview{
 	width: 550px;
 	margin-left: auto;
     margin-right: auto;
     display: block; 
+}
+
+.posted-date{
+	float: right;
 }
 
 .feature{

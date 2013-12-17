@@ -6,7 +6,12 @@
         <h1> {{post.title}} </h1>
     </header>
     <img class="feature" src={{post.content|safe}}></img>
-
+    <p class="posted-date">
+        Posted on
+        <time datetime="{{post.created|date:"c"}}">
+        {{post.created|date}}
+        </time>
+    </p>
     <div class="like-container">
         <p>
             <span class="like-count">{{post.likes}}</span>
@@ -14,6 +19,8 @@
             <a class="liked">Nice!</a>
         </p>
     </div>
+
+
 
 	<div class="social-media-sharing">
           <!-- AddThis Button BEGIN -->
@@ -27,12 +34,6 @@
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a764f2335d0f86"></script>
         <!-- AddThis Button END -->
     </div>
-    <p>
-        Posted on
-        <time datetime="{{post.created|date:"c"}}">
-        {{post.created|date}}
-        </time>
-    </p>
 
 </article>
 
