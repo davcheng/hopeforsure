@@ -111,6 +111,20 @@ a{
 	color: inherit;
 }
 
+.like-container{
+	background: #990000;
+	color: #FFFFFF;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	width:100px;
+	text-align: center;
+	margin: 5px; 
+}
+
+.liked{
+	display: none;
+}
+
 .tagline-verse{
 	font-family: 'Roboto Slab', serif;
 	font-size: 16px;

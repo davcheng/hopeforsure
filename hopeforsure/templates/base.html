@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <!--Production Stylesheet-->
-        <link rel="stylesheet" type="text/css" href="http://davcheng.com/resources/stylesheet/hopeforsure-stylesheet.css">
+<!--         <link rel="stylesheet" type="text/css" href="http://davcheng.com/resources/stylesheet/hopeforsure-stylesheet.css"> -->
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}style.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
@@ -18,11 +18,13 @@
         $(document).ready(function(){
             $("a.like").click(function(){
                 var curr_elem = $(this) ;
+                $(curr_elem).parent().find(".like").hide();
+                $(curr_elem).parent().find(".liked").show();
                 $.get($(this).attr('href'), function(data){
-                    var my_div = $(curr_elem).parent().find("b");
-                    my_div.text(my_div.text()*1+1);     
+                    var likecount_div = $(curr_elem).parent().find(".like-count");
+                    likecount_div.text(likecount_div.text()*1+1); 
                 }); 
-                return false; // prevent loading URL from href
+                return false;
             });
         });
         </script
