@@ -9,6 +9,7 @@ class Post(models.Model):
     published = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
+    # tags = models.CharField(max_length=255)
  
     class Meta:
         ordering = ['-created']

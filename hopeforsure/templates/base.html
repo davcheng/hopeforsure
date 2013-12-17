@@ -11,8 +11,21 @@
         <title>
             Hope For Sure
         </title>
+        
 
-
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $("a.like").click(function(){
+                var curr_elem = $(this) ;
+                $.get($(this).attr('href'), function(data){
+                    var my_div = $(curr_elem).parent().find("b");
+                    my_div.text(my_div.text()*1+1);     
+                }); 
+                return false; // prevent loading URL from href
+            });
+        });
+        </script
         </head>
 
     <body>
@@ -39,7 +52,7 @@
                     Random
                 </div>  
             </a>
-            <a href="/submit.html">
+            <a href="/id/">
                 <div class="menu-item">
                     Submit
                 </div>     
@@ -59,6 +72,7 @@
             {% block widget %}
 
             {% endblock %}
+
         </div>
     </body>
     <footer>
