@@ -5,9 +5,9 @@ from blog.models import Post
  
 def index(request):
     # get the blog posts that are published
-    posts = Post.objects.filter(published=True)[:5]
+    posts = Post.objects.filter(published=True)[:3]
     # posts ordered by number of likes today
-    widget_posts = Post.objects.filter(published=True)[5:]
+    widget_posts = Post.objects.filter(published=True).order_by('-likes')[5:]
     current_page = 1
     # todays_likes = Post.objects.order_by(-likes, date=date.today())
     # now return the rendered template
@@ -15,9 +15,11 @@ def index(request):
 
 def nextfiveposts(request, current_page):
     # get the blog posts that are published
+    current_page=int(current_page)
     #make this a variable
-    posts = Post.objects.filter(published=True)[5*current_page:10*current_page]
+    posts = Post.objects.filter(published=True)[3*current_page:5*current_page]
     # posts ordered by number of likes today
+    current_page+=1
     # now return the rendered template
     return render(request, 'blog/index.html', {'posts': posts, 'current_page': current_page})
  
