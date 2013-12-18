@@ -17,13 +17,23 @@
 
             <div class="like-container">
                 <p>
-                    <span class="like-count">{{post.likes}}</span>
-                    <a class="like" href="/like/{{post.slug}}/">Like</a>
-                    <a class="liked">Nice!</a>
+                    <a class="like" href="/like/{{post.slug}}/">
+                        <span>
+                              {{post.likes}}
+                        </span> Awesome
+                    </a>
+                    <a class="liked"><span class="updated-likes">{{post.likes}}</span> Nice!</a>
                 </p>
             </div>
         </div>
     {% endfor %}
+
+    <!--begin next and back buttons-->
+    <div class="page-nav-button-container">
+        <a class="next-button" href="/next/{{current_page}}/">
+            Next
+        </a>
+    </div>
 
 {% endblock %}
 
@@ -31,14 +41,17 @@
         <!--try to loop through post labels-->
         <div class="widget">
             <div class="widget-title">
-                Share on Facebook!
-            </div>
-            {% for post in widget_posts %}
                 <p>
+                Share on Facebook!
+                </p>
+            </div>
+
+            {% for post in widget_posts %}
+                <p class="widget-post-preview" >
                     <a href="{{post.get_absolute_url}}">
-                        <img class="post-preview-widget" alt={{post.description}} src={{post.content|safe}}>
+                        <img class="widget-post-preview" alt={{post.description}} src={{post.content|safe}}>
                     </a>
-                    <span class="like-count">{{post.likes}} Likes</span>
+                    <span class="widget-like-count">{{post.likes}} Likes</span>
                 <p>
             {% endfor %}
         </div>

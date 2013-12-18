@@ -2,7 +2,7 @@ body{
     border-width: 0 1px 1px;
 	border-style: solid;
 	border-color: #D63333;
-    min-height: 2700px;
+    min-height: 1500px;
     width: 1000px;
     margin: 0 auto;
     font-family: 'Roboto Slab', serif;
@@ -43,11 +43,6 @@ body{
 
 }
 
-.widget-container{
-	float: left;
-	width: 240px;
-}
-
 .post-title-box{
 	font-size: 18px;
 	color: #FFFFFF;
@@ -78,40 +73,13 @@ body{
 	float: left;
 }
 
-.likes{
-	background: #990000;
-	color: #FFFFFF;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	width:100px;
-	text-align: center;
-	margin: 5px;
-}
-
 a{
 	text-decoration: none;
 	color: inherit;
 }
 
-.like-container{
-	background: #990000;
-	color: #FFFFFF;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	width:100px;
-	text-align: center;
-	margin: 5px; 
-}
 
-.liked{
-	display: none;
-}
 
-.liked-container{
-	background-color: #FFCCCC;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-}
 
 .tagline-verse{
 	font-family: 'Roboto Slab', serif;
@@ -137,13 +105,6 @@ a{
     display: block; 
 }
 
-.post-preview-widget{
-	width: 250px;
-	margin-left: auto;
-    margin-right: auto;
-    display: block; 
-}
-
 .post-preview{
 	width: 550px;
 	margin-left: auto;
@@ -158,6 +119,101 @@ a{
 .feature{
 	width: 700px;
 }
+
+/*like button style*/
+.like-container{
+	margin: 0 0 0 30px;
+	width: 100px;
+	background-color: #D63333;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: center;
+}
+
+/*before user has clicked*/
+.like{
+	font-size: 14px;
+	line-height: 12px;
+}
+
+.liked-container{
+	width: 100px;
+	background-color: #990000;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+
+}
+
+/*after user has clicked*/
+.liked{
+	display: none;
+}
+
+
+.next-button{
+	margin: 0 0 0 300px;
+	color: #FFFFFF;
+	background-color: #D63333;
+	height: 40px;
+	line-height: 40px;
+	width: 128px;
+	position:relative;
+
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+
+}
+
+.next-button:after {
+	content: '';
+	position: absolute;
+    top: 0px;
+	left: 128px;
+	width: 0;
+	height: 0;
+	border: 21px solid transparent;
+	border-left: 12px solid #D63333;
+}
+.next-button:before {
+	content: '';
+	position: absolute;
+    top: 0px;
+	left: 129px;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+
+}
+
+/*widget*/
+.widget-header{
+	background-color: #D63333;
+	margin: 25px 0 10px;
+	width: 250px;
+	font-size: 18px;
+	color: #FFFFFF;
+}
+
+.widget-container{
+	float: left;
+	width: 240px;
+}
+.widget-title{
+	margin: 25px 0 10px;
+}
+
+.widget-post-preview{
+	width: 225px;
+	margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
 
 .disqus{
 	width: 700px;
