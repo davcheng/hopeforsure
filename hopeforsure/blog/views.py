@@ -2,6 +2,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from blog.models import Post
+from math import ceil
  
 def index(request):
     # set the current page
@@ -16,22 +17,24 @@ def index(request):
 def nextfiveposts(request, current_page):
     # get the blog posts that are published
     current_page=int(current_page)
-    post_count=15
-    #make this a variable
-    posts = Post.objects.filter(published=True)[3*current_page:3*(current_page+1)]
-
-    if current_page<post_count/3:
+    # get total number of posts
+    post_count=8
+    # next page available?
+    if current_page<=ceil(post_count/3):
         current_page+=1
+    # get and filter posts
+    posts = Post.objects.filter(published=True)[3*(current_page-1):3*(current_page)]
     # now return the rendered template
     return render(request, 'blog/index.html', {'posts': posts, 'current_page': current_page})
 
 def backfiveposts(request, current_page):
-    # get the blog posts that are published
+    # get the index of the current posts that are on the page
     current_page=int(current_page)
+    # back pages available?
     if current_page>1:
         current_page-=1
-    #make this a variable
-    posts = Post.objects.filter(published=True)[3*(current_page-1):3*current_page]
+    # get and filter posts
+    posts = Post.objects.filter(published=True)[3*(current_page-1):3*(current_page)]
     # now return the rendered template
     return render(request, 'blog/index.html', {'posts': posts, 'current_page': current_page})
 

@@ -152,8 +152,11 @@ a{
 
 
 .page-nav-button-container{
+	position: relative;
+	float: left;
 	width: 700px;
-	height: 40px
+	height: 40px;
+	padding-top: 50px;
 }
 
 .next-button{

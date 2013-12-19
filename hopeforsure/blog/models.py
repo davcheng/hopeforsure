@@ -10,6 +10,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
     # tags = models.CharField(max_length=255)
+    # unlike = models.CharField(max_length=255)
  
     class Meta:
         ordering = ['-created']
