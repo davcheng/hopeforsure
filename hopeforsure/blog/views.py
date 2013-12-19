@@ -13,8 +13,9 @@ def index(request):
     current_page = 1
     # get the blog posts that are published
     posts = Post.objects.filter(published=True)[:3]
-    # get the posts for the widget
-    widget_posts = Post.objects.filter(published=True).order_by('-likes')[3*current_page:]
+    # get the posts for the widget but exclude currently displayed posts
+    slugs_to_exclude = [post.slug for post in posts] 
+    widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
     # now return the rendered template
     return render(request, 'blog/index.html', {'posts': posts, 'widget_posts': widget_posts, 'current_page': current_page, 'total_pages': total_pages})
 
@@ -45,23 +46,30 @@ def backfiveposts(request, current_page):
 def post(request, slug):
     # get the Post object
     post = get_object_or_404(Post, slug=slug)
+    # get the posts for the widget
+    widget_posts = Post.objects.filter(published=True).exclude(slug=slug).order_by('?')[:5]
     # now return the rendered template
-    return render(request, 'blog/post.html', {'post': post})
+    return render(request, 'blog/post.html', {'post': post, 'widget_posts': widget_posts})
 
 def top(request):
     # get the blog posts that are published
-    top_posts = Post.objects.filter(published=True).order_by('-likes')[:10]
+    top_posts = Post.objects.filter(published=True).order_by('-likes')[:5]
+    # get the posts for the widget but exclude currently displayed posts
+    slugs_to_exclude = [post.slug for post in top_posts] 
+    widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
     # now return the rendered template
-    return render(request, 'blog/top.html', {'top_posts': top_posts})
+    return render(request, 'blog/top.html', {'top_posts': top_posts, 'widget_posts': widget_posts})
 
 def random(request):
     current_page = 1
     # get the blog posts that are published
-    posts = Post.objects.filter(published=True).order_by('?')[:3]
+    rand_posts = Post.objects.filter(published=True).order_by('?')[:3]
     # get the posts for the widget
-    widget_posts = Post.objects.filter(published=True).order_by('-likes')[3*current_page:]
+     # get the posts for the widget but exclude currently displayed posts
+    slugs_to_exclude = [post.slug for post in rand_posts] 
+    widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
     # now return the rendered template
-    return render(request, 'blog/index.html', {'posts': posts, 'widget_posts': widget_posts, 'current_page': current_page})
+    return render(request, 'blog/random.html', {'posts': rand_posts, 'widget_posts': widget_posts, 'current_page': current_page})
 
 
 def about(request):

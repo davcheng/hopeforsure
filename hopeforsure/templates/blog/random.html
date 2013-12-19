@@ -2,10 +2,10 @@
 
 {% block content %}
     <!--loop through posts-->
-    {% for post in top_posts %}
+    {% for post in posts %}
         <div class="post-container">
             <a class="post-title-box" href="{{post.get_absolute_url}}">
-                <div class="post-title">
+                <div class="post-title" id="{{post.title}}">
                     {{post.title}}
                 </div>
             </a>
@@ -14,19 +14,37 @@
                     <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
                 </a>
             </div>
+
             <div class="like-container">
                 <p>
                     <a class="like" href="/like/{{post.slug}}/">
                         <span>
                               {{post.likes}}
-                        </span> Like
+                        </span> Awesome
                     </a>
-                    <a class="liked">Nice!</a>
+                    <a class="liked"><span class="updated-likes">{{post.likes}}</span> Nice!</a>
                 </p>
             </div>
-
         </div>
     {% endfor %}
+
+    <!--begin next and back buttons-->
+    <div class="page-nav-button-container">
+        <div class="back-button">
+            {% if current_page > 1%}
+            <a class="next-button-link" href="/back/{{current_page}}/">
+                Back
+            </a>
+            {% endif %}
+        </div>
+        <div class="next-button">
+            {% if current_page <= total_pages %}
+            <a  class="next-button-link" href="/next/{{current_page}}/">
+                Next
+            </a>
+            {% endif %}
+        </div>
+    </div>
 
 {% endblock %}
 
@@ -41,10 +59,10 @@
 
             {% for post in widget_posts %}
                 <p class="widget-post-preview" >
-                    <span class="widget-like-count">{{post.title}}</span>
                     <a href="{{post.get_absolute_url}}">
                         <img class="widget-post-preview" alt={{post.description}} src={{post.content|safe}}>
                     </a>
+                    <span class="widget-like-count">{{post.likes}} Likes</span>
                 <p>
             {% endfor %}
         </div>

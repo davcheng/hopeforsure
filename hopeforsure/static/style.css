@@ -243,7 +243,9 @@ a{
 .widget-container{
 	float: left;
 	width: 240px;
+	padding-left: 25px;
 }
+
 .widget-title{
 	margin: 25px 0 10px;
 }
