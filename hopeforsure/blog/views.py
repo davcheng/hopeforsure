@@ -69,14 +69,24 @@ def top(request):
     return render(request, 'blog/top.html', {'top_posts': top_posts, 'widget_posts': widget_posts})
 
 def random(request):
-    current_page = 1
-    # get the blog posts that are published
-    rand_posts = Post.objects.filter(published=True).order_by('?')[:3]
+    # get the Post object
+    rand_posts = Post.objects.filter(published=True).order_by('?')[:1]
     # get the posts for the widget but exclude currently displayed posts
     slugs_to_exclude = [post.slug for post in rand_posts] 
     widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
     # now return the rendered template
-    return render(request, 'blog/random.html', {'posts': rand_posts, 'widget_posts': widget_posts, 'current_page': current_page})
+    return render(request, 'blog/post.html', {'post': post, 'widget_posts': widget_posts})
+
+
+# def random(request):
+#     current_page = 1
+#     # get the blog posts that are published
+#     rand_posts = Post.objects.filter(published=True).order_by('?')[:3]
+#     # get the posts for the widget but exclude currently displayed posts
+#     slugs_to_exclude = [post.slug for post in rand_posts] 
+#     widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
+#     # now return the rendered template
+#     return render(request, 'blog/random.html', {'posts': rand_posts, 'widget_posts': widget_posts, 'current_page': current_page})
 
 
 def about(request):
