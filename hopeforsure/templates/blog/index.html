@@ -30,12 +30,20 @@
 
     <!--begin next and back buttons-->
     <div class="page-nav-button-container">
-        <a class="back-button" href="/back/{{current_page}}/">
-            Back
-        </a>
-        <a class="next-button" href="/next/{{current_page}}/">
-            Next
-        </a>
+        <div class="back-button">
+            {% if current_page > 1%}
+            <a class="next-button-link" href="/back/{{current_page}}/">
+                Back
+            </a>
+            {% endif %}
+        </div>
+        <div class="next-button">
+            {% if current_page <= total_pages %}
+            <a  class="next-button-link" href="/next/{{current_page}}/">
+                Next
+            </a>
+            {% endif %}
+        </div>
     </div>
 
 {% endblock %}
