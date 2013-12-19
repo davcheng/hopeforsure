@@ -7,7 +7,7 @@ def index(request):
     # get the blog posts that are published
     posts = Post.objects.filter(published=True)[:3]
     # posts ordered by number of likes today
-    widget_posts = Post.objects.filter(published=True).order_by('-likes')[5:]
+    widget_posts = Post.objects.filter(published=True).order_by('-likes')[3:]
     current_page = 1
     # todays_likes = Post.objects.order_by(-likes, date=date.today())
     # now return the rendered template
@@ -17,12 +17,22 @@ def nextfiveposts(request, current_page):
     # get the blog posts that are published
     current_page=int(current_page)
     #make this a variable
-    posts = Post.objects.filter(published=True)[3*current_page:5*current_page]
+    posts = Post.objects.filter(published=True)[3*current_page:3*(current_page+1)]
     # posts ordered by number of likes today
     current_page+=1
     # now return the rendered template
     return render(request, 'blog/index.html', {'posts': posts, 'current_page': current_page})
- 
+
+def backfiveposts(request, current_page):
+    # get the blog posts that are published
+    current_page=int(current_page)
+    if current_page>1:
+        current_page-=1
+    #make this a variable
+    posts = Post.objects.filter(published=True)[3*(current_page-1):3*current_page]
+    # now return the rendered template
+    return render(request, 'blog/index.html', {'posts': posts, 'current_page': current_page})
+
 def post(request, slug):
     # get the Post object
     post = get_object_or_404(Post, slug=slug)

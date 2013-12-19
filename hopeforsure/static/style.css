@@ -151,8 +151,13 @@ a{
 }
 
 
+.page-nav-button-container{
+	width: 700px;
+	height: 40px
+}
+
 .next-button{
-	margin: 0 0 0 300px;
+	margin: 0 0 0 10px;
 	color: #FFFFFF;
 	background-color: #D63333;
 	height: 40px;
@@ -181,6 +186,42 @@ a{
 	position: absolute;
     top: 0px;
 	left: 129px;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+
+}
+
+.back-button{
+	margin: 0 0 0 183px;
+	color: #FFFFFF;
+	background-color: #D63333;
+	height: 40px;
+	line-height: 40px;
+	width: 128px;
+	position:relative;
+
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+.back-button:after {
+	content: '';
+	position: absolute;
+    top: 0px;
+	right: 128px;
+	width: 0;
+	height: 0;
+	border: 21px solid transparent;
+	border-right: 12px solid #D63333;
+}
+.back-button:before {
+	content: '';
+	position: absolute;
+    top: 0px;
+	right: 129px;
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
