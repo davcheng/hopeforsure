@@ -50,21 +50,19 @@
 
 {% block widget %}
         <!--try to loop through post labels-->
-        <div class="widget">
-            <div class="widget-title">
-                <p>
-                Share on Facebook!
-                </p>
-            </div>
-
-            {% for post in widget_posts %}
-                <p class="widget-post-preview" >
-                    <a href="{{post.get_absolute_url}}">
-                        <img class="widget-post-preview" alt={{post.description}} src={{post.content|safe}}>
-                    </a>
-                    <span class="widget-like-count">{{post.likes}} Likes</span>
-                <p>
-            {% endfor %}
+        <div class="widget-title">
+            <p>
+            Share on Facebook!
+            </p>
         </div>
+
+        {% for post in widget_posts %}
+            <p class="widget-post-preview" >
+                <a href="{{post.get_absolute_url}}">
+                    <img class="widget-post-preview" alt={{post.description}} src={{post.content|safe}}>
+                </a>
+                <span class="widget-like-count">{{post.likes}} Likes</span>
+            <p>
+        {% endfor %}
 
 {% endblock %}
