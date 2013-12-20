@@ -39,7 +39,7 @@ def nextfiveposts(request, current_page):
 def backfiveposts(request, current_page):
     # get the index of the current posts that are on the page
     current_page=int(current_page)
-   # back pages available?
+    # back pages available?
     if current_page>1:
         current_page-=1
     # get and filter posts
@@ -54,7 +54,7 @@ def backfiveposts(request, current_page):
 def post(request, slug):
     # get the Post object
     post = get_object_or_404(Post, slug=slug)
-    # get the posts for the widget
+    # get the posts for the widget, exclude current post
     widget_posts = Post.objects.filter(published=True).exclude(slug=slug).order_by('?')[:5]
     # now return the rendered template
     return render(request, 'blog/post.html', {'post': post, 'widget_posts': widget_posts})
@@ -77,7 +77,7 @@ def random(request):
     # now return the rendered template
     return render(request, 'blog/post.html', {'post': post, 'widget_posts': widget_posts})
 
-
+# multiple random posts
 # def random(request):
 #     current_page = 1
 #     # get the blog posts that are published
@@ -87,7 +87,6 @@ def random(request):
 #     widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
 #     # now return the rendered template
 #     return render(request, 'blog/random.html', {'posts': rand_posts, 'widget_posts': widget_posts, 'current_page': current_page})
-
 
 def about(request):
     # now return the rendered template
@@ -100,6 +99,7 @@ def get_current_path(request):
 
 def like(request, slug):
 	if request.is_ajax():
+        # get current post and increment like count
 		s= get_object_or_404(Post, slug=slug)
 		s.likes+=1
 		s.save()
