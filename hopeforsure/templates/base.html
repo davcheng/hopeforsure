@@ -25,11 +25,28 @@
                 return false;
             });
         });
+
+
+
+        $(function() {
+            var sharetab = $("#sharetab"), tabtop = sharetab.offset();
+            $(window).scroll(function() { 
+                if($(this).scrollTop() > tabtop.top && sharetab.css('position') != 'fixed') { 
+                    sharetab.css({"position": "fixed", "top":"0px"});
+                } 
+                else if($(this).scrollTop() <= tabtop.top && sharetab.css('position') == 'fixed'){
+                    sharetab.css({"position": "absolute", "top": "76px"}); 
+                }
+           })
+        });
+
         </script>
 
     </head>
 
-    <body>
+    <body>    
+
+
         <div class="masthead-container">
             <a href="/">
                 <div class="tagline-verse">
@@ -69,6 +86,10 @@
 
         <!--begin posts-->
         <div class="post-container">
+            {% block addthis %}
+    
+            {% endblock %}
+            
             {% block content %}
 
             {% endblock %}
@@ -83,6 +104,7 @@
 
         </div>
     </body>
+
     <footer>
         <div class="tagline-verse">
             "Now faith is being <span class="bold">sure of what we hope for</span> and certain of what we do not see." - Hebrews 11:1 

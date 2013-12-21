@@ -1,4 +1,7 @@
+html{background-color: #F5F0EB;}
+
 body{
+	background-color: #FFFFFF;
     border-width: 0 1px 1px;
 	border-style: solid;
 	border-color: #D63333;
@@ -18,7 +21,7 @@ body{
 	width: 100%;
 	font-size: 10px;
     height: 26px;
-    background-color: #D63333;
+    background-color:  #990000;
     letter-spacing: 2px;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -35,7 +38,7 @@ body{
 }
 
 .menu-item:hover{
-	background-color: #990000;
+	background-color: #D63333;
 }
 
 .content{
@@ -251,7 +254,8 @@ a{
 }
 
 .widget-title{
-	margin: 25px 0 10px;
+	margin: 25px 0 10px 50px;
+
 }
 
 .widget-post-preview{
@@ -261,7 +265,33 @@ a{
     display: block; 
 }
 
+.addthisbutton{
+	margin: auto;
+}
 
 .disqus{
 	width: 700px;
+}
+
+#sharetab{
+	margin-left: 986px;
+	background: #FFFFFF;
+	border-color: #D63333;
+	z-index:1000;
+	top: 76px;
+	width:54px;
+	padding:10px 0 10px 10px;
+	-webkit-border-top-right-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	-moz-border-radius-topright:10px;
+	-moz-border-radius-bottomright:10px;
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+	position: absolute;
+	
+}
+
+
+.addthis_default_style .addthis_separator, .addthis_default_style .at300b, .addthis_default_style .at300bo, .addthis_default_style .at300m, .addthis_default_style .at300bs {
+	margin-top: 3px;
 }
