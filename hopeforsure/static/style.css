@@ -61,6 +61,7 @@ h1{
 	margin: 0 0 10px;
 	width: 575px;
 	padding-left: 25px;
+	line-height: 25px;
 }
 
 .post-title:hover{
@@ -254,8 +255,12 @@ a{
 }
 
 .widget-title{
-	margin: 25px 0 10px 50px;
-
+	margin: 24px 0 10px 0;
+	background-color:#990000;
+	color: #FFFFFF; 
+	width: 240px;
+	text-align: center;
+	line-height: 25px;
 }
 
 .widget-post-preview{
