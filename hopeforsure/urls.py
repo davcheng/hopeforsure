@@ -5,9 +5,10 @@ admin.autodiscover()
  
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^about/', 'blog.views.about'),
     url(r'^top/', 'blog.views.top'),
     url(r'^random/', 'blog.views.random'),
+    url(r'^submit/', 'blog.views.submit'),
+    url(r'^about/', 'blog.views.about'),
     url(r'^next/top/(?P<current_page>\d+)/$', 'blog.views.nextfivetopposts'),
     url(r'^back/top/(?P<current_page>\d+)/$', 'blog.views.backfivetopposts'),    
     url(r'^next/(?P<current_page>\d+)/$', 'blog.views.nextfiveposts'),

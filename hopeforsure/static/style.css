@@ -5,7 +5,7 @@ body{
     border-width: 0 1px 1px;
 	border-style: solid;
 	border-color: #D63333;
-    min-height: 1500px;
+    min-height: 1000px;
     width: 1000px;
     margin: 0 auto;
     font-family: 'Roboto Slab', serif;
@@ -48,6 +48,10 @@ body{
 
 h1{
 	font-weight: 400;
+}
+
+.post-container{
+
 }
 
 .post-title-box{
@@ -297,6 +301,116 @@ a{
 }
 
 
+/*submit page*/
+
+.submit-form {
+ 
+    width: 500px;
+    padding: 20px;
+    background: #f0f0f0;
+    overflow:auto;
+ 
+    /* Border style */
+    border: 1px solid #cccccc;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+ 
+    /* Border Shadow */
+    -moz-box-shadow: 2px 2px 2px #cccccc;
+    -webkit-box-shadow: 2px 2px 2px #cccccc;
+    box-shadow: 2px 2px 2px #cccccc;
+ 	padding: 30px;
+ 	margin:30px;
+
+}
+
+
+
+.field-label{
+    font-family: Arial, Verdana;
+    text-shadow: 2px 2px 2px #ccc;
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin-right:10px;
+    text-align: right;
+    width: 120px;
+    line-height: 25px;
+    font-size: 15px;
+}
+
+ .submit-field{
+    font-family: Arial, Verdana;
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid #b9bdc1;
+    width: 300px;
+    color: #797979;
+}
+
+.submit-field:focus{
+	border: 2px solid #99000;
+}
+
+input{
+	border: none;
+}
+.submit-button {
+    float: right;
+    margin:10px 55px 10px 0;
+    font-weight: bold;
+    line-height: 1;
+    padding: 6px 10px;
+    cursor:pointer;
+    color: #fff;
+ 
+    text-align: center;
+    font-weight: 400;
+ 
+    /* Background gradient */
+    background: #D63333;
+    background: -moz-linear-gradient
+       (top, #a5b8da 0%, #7089b3 100%);
+    background: -webkit-gradient
+       (linear, 0% 0%, 0% 100%,
+       from(#a5b8da), to(#7089b3));
+ 
+    /* Border style */
+    border: 1px solid #990000;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+ 
+    /* Box shadow */
+    -moz-box-shadow: inset 0 1px 0 0 #990000;
+    -webkit-box-shadow: inset 0 1px 0 0 #990000;
+    box-shadow: inset 0 1px 0 0 #990000;
+    font-family: 'Roboto Slab', serif;
+}
+
+.fieldWrapper{
+	display: block;
+	float: left;
+	margin-top: 20px;
+}
+
 .addthis_default_style .addthis_separator, .addthis_default_style .at300b, .addthis_default_style .at300bo, .addthis_default_style .at300m, .addthis_default_style .at300bs {
 	margin-top: 3px;
+}
+
+footer{
+	clear: both;
+	background-color: #990000;
+	color: #FFFFFF;
+    border-width: 0 1px 1px;
+	border-style: solid;
+	height: 30px;
+	line-height: 30px;
+    width: 1000px;
+    margin: 0 auto;
+    font-family: 'Roboto Slab', serif;
+    position: absolute;
+    text-align: center;
+	/*font-family: 'Average Sans', sans-serif;*/
 }

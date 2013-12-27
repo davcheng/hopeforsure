@@ -1,7 +1,7 @@
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from blog.models import Post
+from blog.models import Post, UserSubmittedPost
 from math import ceil
 
 # calculate total number of pages available
@@ -100,7 +100,6 @@ def backfivetopposts(request, current_page):
     # now return the rendered template
     return render(request, 'blog/index.html', {'posts': posts, 'current_page': current_page, 'widget_posts': widget_posts,'total_pages': total_pages})
 
-
 def random(request):
     # get the Post object
     rand_posts = Post.objects.filter(published=True).order_by('?')[:1]
@@ -110,16 +109,20 @@ def random(request):
     # now return the rendered template
     return render(request, 'blog/random.html', {'post': post, 'widget_posts': widget_posts})
 
-# multiple random posts
-# def random(request):
-#     current_page = 1
-#     # get the blog posts that are published
-#     rand_posts = Post.objects.filter(published=True).order_by('?')[:3]
-#     # get the posts for the widget but exclude currently displayed posts
-#     slugs_to_exclude = [post.slug for post in rand_posts] 
-#     widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
-#     # now return the rendered template
-#     return render(request, 'blog/random.html', {'posts': rand_posts, 'widget_posts': widget_posts, 'current_page': current_page})
+def submit(request):
+    if request.method == 'POST': # If the form has been submitted...
+        form = UserSubmittedPost(request.POST) # A form bound to the POST data
+
+        if form.is_valid(): # All validation rules pass
+            # save form
+            form.save()
+            #TODO: change redirect to submit but with message
+            return HttpResponseRedirect('/submit/') # Redirect after POST
+    else:
+        form = UserSubmittedPost() # An unbound form
+
+    return render(request, 'blog/submit.html', {'form': form})
+
 
 def about(request):
     # now return the rendered template

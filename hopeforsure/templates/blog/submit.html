@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <form action="/submit/" method="post">
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+    <p><input type="submit" value="Submit!" /></p>
+</form> -->
+
+<form class="submit-form" action="/submit/" method="post">{% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.title.errors }}
+        <label class="field-label" for="title">Title:</label>
+        <span class="submit-field">{{ form.title }}</span>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.description.errors }}
+        <label class="field-label" for="description">Description:</label>
+        <span class="submit-field">{{ form.description }}</span>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.content.errors }}
+        <label class="field-label" for="content">Image URL:</label>
+        <span class="submit-field">{{ form.content }}</span>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.slug.errors }}
+        <label class="field-label" for="slug">Slug:</label>
+        <span class="submit-field">{{ form.slug }}</span>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.tags.errors }}
+        <label class="field-label" for="tags">tags:</label>
+        <span class="submit-field">{{ form.tags }}</span>
+    </div>
+    <p><input class="submit-button" type="submit" value="Submit!" /></p>
+</form>
+
+{% endblock %}
+
+{% block widget %}
+        <!--try to loop through post labels-->
+        <div class="widget">
+            <div class="widget-title">
+                Share on Facebook!
+            </div>
+        </div>
+{% endblock %}

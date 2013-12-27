@@ -6,13 +6,13 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, max_length=255)
     description = models.CharField(max_length=255)
-    content = models.TextField()
+    content = models.CharField(max_length=255)
     published = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
-    # tags = models.CharField(max_length=255)
-    # unlike = models.CharField(max_length=255)
- 
+    unlikes = models.IntegerField(default=0)
+    tags = models.CharField(max_length=255)
+
     class Meta:
         ordering = ['-created']
  
@@ -22,3 +22,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('blog.views.post', args=[self.slug])
 
+class UserSubmittedPost(ModelForm):
+    class Meta:
+        model = Post
+        exclude = ('published', 'likes', 'unlikes', 'created')
