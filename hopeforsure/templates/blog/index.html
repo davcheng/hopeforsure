@@ -11,7 +11,21 @@
             </a>
             <div class="post-preview-container">
                 <a href="{{post.get_absolute_url}}">
+                    {% if post.fileType = "Image" %}
                     <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
+                    {% endif %}
+
+                    {% if post.fileType = "Video" %}
+                    <video width="320" height="240" controls>
+                        <source src={{post.content|safe}}>
+                    Your browser does not support video
+                    </video>
+                    {% endif %}
+
+                    {% if post.fileType = "Youtube" %}
+                    <iframe type="text/html" width="600" height="300" src={{post.content|safe}} frameborder="0"></iframe>
+                    {% endif %}  
+
                 </a>
             </div>
 

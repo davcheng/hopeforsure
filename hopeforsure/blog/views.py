@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from blog.models import Post, UserSubmittedPost
 from math import ceil
+import urlparse
 
 # calculate total number of pages available
 post_count=Post.objects.count()
@@ -111,7 +112,16 @@ def random(request):
 
 def submit(request):
     if request.method == 'POST': # If the form has been submitted...
-        form = UserSubmittedPost(request.POST) # A form bound to the POST data
+        form = UserSubmittedPost(request.POST)
+        # if fileType is youtube then parse the id and convert to embed
+        if (request.POST.get('fileType') == "Youtube") & form.is_valid():
+            instance = form.save(commit=False)
+            url_data = urlparse.urlparse(request.POST.get('content'))
+            query = urlparse.parse_qs(url_data.query)
+            videoId = query["v"][0]
+            instance.content = "http://youtube.com/embed/" + videoId
+            instance.save()
+            return HttpResponseRedirect('/submit/') # Redirect after POST
 
         if form.is_valid(): # All validation rules pass
             # save form
