@@ -5,7 +5,23 @@
     <header>
         <h1> {{post.title}} </h1>
     </header>
-    <img class="feature" src={{post.content|safe}}></img>
+    <a href="{{post.get_absolute_url}}">
+        {% if post.fileType = "Image" %}
+        <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
+        {% endif %}
+
+        {% if post.fileType = "Video" %}
+        <video width="320" height="240" controls>
+            <source src={{post.content|safe}}>
+        Your browser does not support video
+        </video>
+        {% endif %}
+
+        {% if post.fileType = "Youtube" %}
+        <iframe type="text/html" width="600" height="300" src={{post.content|safe}} frameborder="0"></iframe>
+        {% endif %}  
+
+    </a>
     <p class="posted-date">
         Posted on
         <time datetime="{{post.created|date:"c"}}">
@@ -84,7 +100,20 @@
                 <p class="widget-post-preview" >
                     <span class="widget-like-count">{{post.title}}</span>
                     <a href="{{post.get_absolute_url}}">
+                        {% if post.fileType = "Image" %}
                         <img class="widget-post-preview" alt={{post.description}} src={{post.content|safe}}>
+                        {% endif %}
+
+                        {% if post.fileType = "Video" %}
+                        <video class="widget-post-preview" controls>
+                            <source src={{post.content|safe}}>
+                        Your browser does not support video
+                        </video>
+                        {% endif %}
+
+                        {% if post.fileType = "Youtube" %}
+                        <iframe class="widget-post-preview" type="text/html" src={{post.content|safe}} frameborder="0"></iframe>
+                        {% endif %}  
                     </a>
                 <p>
             {% endfor %}
