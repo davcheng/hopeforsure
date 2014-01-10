@@ -4,7 +4,8 @@
     <!--loop through posts-->
     {% for post in posts %}
         <div class="post-container">
-            <a class="post-title-box" href="{{post.get_absolute_url}}">
+            <a class="post-title-box">
+                <!-- href="{{post.get_absolute_url}}" -->
                 <div class="post-title" id="{{post.title}}">
                     {{post.title}}
                 </div>
@@ -29,14 +30,12 @@
             </div>
 
             <div class="like-container">
-                <p>
                     <a class="like" href="/like/{{post.slug}}">
                         <span>
                               {{post.likes}}
                         </span> Awesome
                     </a>
                     <a class="liked"><span class="updated-likes">{{post.likes}}</span> Nice!</a>
-                </p>
             </div>
         </div>
     {% endfor %}

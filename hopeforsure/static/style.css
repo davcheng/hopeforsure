@@ -51,7 +51,7 @@ h1{
 }
 
 .post-container{
-
+	
 }
 
 .post-title-box{
@@ -68,14 +68,15 @@ h1{
 	line-height: 25px;
 }
 
-.post-title:hover{
-	background-color: #D63333;
-}
-
 /*for individual posts*/
 .post-container{
-	margin: 0 0 0 15px;
-	width: 700px;
+	margin: 0 100px 0 15px;
+	width: 575px;
+	float: left;
+}
+
+.post-content{
+	width: 575px;
 	float: left;
 }
 
@@ -123,6 +124,9 @@ a{
 
 .posted-date{
 	float: right;
+	width: 275px;
+	text-align: right;
+	display: inline-block;
 }
 
 .feature{
@@ -131,7 +135,7 @@ a{
 
 /*like button style*/
 .like-container{
-	margin: 0 0 0 30px;
+	margin: 5px 0 0 30px;
 	width: 100px;
 	background-color: #D63333;
 	-moz-border-radius: 15px;
@@ -139,6 +143,10 @@ a{
 	color: #FFFFFF;
 	font-size: 14px;
 	text-align: center;
+	display: inline-block;
+	float: left;
+	line-height: 25px;
+	height: 25px;
 }
 
 /*before user has clicked*/
@@ -148,13 +156,25 @@ a{
 }
 
 .liked-container{
+	margin: 5px 0 0 30px;
 	width: 100px;
 	background-color: #990000;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	color: #FFFFFF;
 	font-size: 14px;
+	text-align: center;
+	display: inline-block;
+	float: left;
+	line-height: 25px;
+	height: 25px;
 
+}
+
+.like-container:hover{
+	background-color: #990000;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 }
 
 /*after user has clicked*/
@@ -279,7 +299,8 @@ a{
 }
 
 .disqus{
-	width: 700px;
+	width: 575px;
+	margin: 0 0 0 15px;
 }
 
 #sharetab{
@@ -329,7 +350,6 @@ a{
 
 .field-label{
     font-family: Arial, Verdana;
-    text-shadow: 2px 2px 2px #ccc;
     display: block;
     float: left;
     font-weight: bold;
@@ -359,22 +379,19 @@ input{
 .submit-button {
     float: right;
     margin:10px 55px 10px 0;
-    font-weight: bold;
     line-height: 1;
     padding: 6px 10px;
-    cursor:pointer;
-    color: #fff;
+    cursor: pointer;
+    color: #FFFFFF;
  
     text-align: center;
-    font-weight: 400;
  
     /* Background gradient */
     background: #D63333;
     background: -moz-linear-gradient
        (top, #a5b8da 0%, #7089b3 100%);
     background: -webkit-gradient
-       (linear, 0% 0%, 0% 100%,
-       from(#a5b8da), to(#7089b3));
+       (linear, 0% 0%, 0% 100%, from(#a5b8da), to(#7089b3));
  
     /* Border style */
     border: 1px solid #990000;

@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
  
 {% block content %}
-<article>
-    <header>
-        <h1> {{post.title}} </h1>
-    </header>
+<article class="post-container">
+    <a class="post-title-box">
+        <div class="post-title" id="{{post.title}}">
+            {{post.title}}
+        </div>
+    </a>
     <a href="{{post.get_absolute_url}}">
         {% if post.fileType = "Image" %}
         <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
@@ -29,14 +31,12 @@
     </p>
 
     <div class="like-container">
-        <p>
             <a class="like" href="/like/{{post.slug}}/">
                 <span>
                       {{post.likes}}
                 </span> Awesome
             </a>
             <a class="liked">Nice!</a>
-        </p>
     </div>
 
     <div class="social-media-sharing">

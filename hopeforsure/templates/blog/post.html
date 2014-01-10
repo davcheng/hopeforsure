@@ -2,10 +2,12 @@
  
 {% block content %}
 <article class="post-container">
-    <header>
-        <h1> {{post.title}} </h1>
-    </header>
-    <a href="{{post.get_absolute_url}}">
+    <a class="post-title-box">
+        <div class="post-title" id="{{post.title}}">
+            {{post.title}}
+        </div>
+    </a>
+    <a class="post-content" href="{{post.get_absolute_url}}">
         {% if post.fileType = "Image" %}
         <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
         {% endif %}
@@ -20,7 +22,6 @@
         {% if post.fileType = "Youtube" %}
         <iframe type="text/html" width="600" height="300" src={{post.content|safe}} frameborder="0"></iframe>
         {% endif %}  
-
     </a>
     <p class="posted-date">
         Posted on
@@ -30,14 +31,12 @@
     </p>
 
     <div class="like-container">
-        <p>
             <a class="like" href="/like/{{post.slug}}/">
                 <span>
                       {{post.likes}}
                 </span> Awesome
             </a>
             <a class="liked">Nice!</a>
-        </p>
     </div>
 
 	<div class="social-media-sharing">
