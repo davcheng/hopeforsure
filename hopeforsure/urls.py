@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^like/(?P<slug>[\w\-]+)/$', 'blog.views.like'),
     url(r'^$', 'blog.views.index'),
     url(r'^(?P<slug>[\w\-]+)/$', 'blog.views.post'),
+    # url(r'^(?P<slug>[\w\-]+)/$', 'blog.views.post'),
 )

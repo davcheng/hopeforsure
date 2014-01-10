@@ -1,4 +1,12 @@
-html{background-color: #F5F0EB;}
+html{
+	background-color: #F5F0EB;
+}
+
+.logo{
+	width: 80px;
+	padding-left: 25px;
+	margin-top: -10px;
+}
 
 body{
 	background-color: #FFFFFF;
@@ -8,13 +16,16 @@ body{
     min-height: 1000px;
     width: 1000px;
     margin: 0 auto;
-    font-family: 'Roboto Slab', serif;
+    /*font-family: 'Roboto Slab', serif;*/
+    /*font-family: 'Petrona', serif;*/
+	font-family: 'Signika', sans-serif;
+	letter-spacing: 1px;
 	/*font-family: 'Average Sans', sans-serif;*/
 }
 
 .masthead-container{
 	border-bottom: 1px solid #E5E5E5;
-	height: 50px;
+	height: 80px;
 }
 
 .menu-container{
@@ -29,10 +40,11 @@ body{
 
 .menu-item{
 	display: inline;
-    padding: 0 35px;
-    /*font-family: 'Oxygen', sans-serif;*/
-	font-family: 'Roboto Slab', serif;
-    font-size: 16px;
+    padding: 2px 35px;
+	/*font-family: 'Signika', sans-serif;   */
+	font-family: 'Petrona', serif;
+/*	font-family: 'Roboto Slab', serif;*/
+    font-size: 18px;
     color: #FFFFFF;
     line-height: 26px;
 }
@@ -61,7 +73,8 @@ h1{
 }
 
 .post-title{
-	background-color: #990000; 
+	background-color: #D63333; 
+
 	margin: 0 0 10px;
 	width: 575px;
 	padding-left: 25px;
@@ -280,7 +293,7 @@ a{
 
 .widget-title{
 	margin: 24px 0 10px 0;
-	background-color:#990000;
+	background-color:#D63333;
 	color: #FFFFFF; 
 	width: 240px;
 	text-align: center;
@@ -299,7 +312,7 @@ a{
 }
 
 .disqus{
-	width: 575px;
+	width: 580px;
 	margin: 0 0 0 15px;
 }
 
@@ -308,7 +321,7 @@ a{
 	background: #FFFFFF;
 	border-color: #D63333;
 	z-index:1000;
-	top: 76px;
+	top: 106px;
 	width:54px;
 	padding:10px 0 10px 10px;
 	-webkit-border-top-right-radius:10px;
@@ -349,33 +362,40 @@ a{
 
 
 .field-label{
-    font-family: Arial, Verdana;
+	font-family: 'Signika', sans-serif;
     display: block;
     float: left;
-    font-weight: bold;
     margin-right:10px;
     text-align: right;
     width: 120px;
     line-height: 25px;
     font-size: 15px;
+
 }
 
  .submit-field{
-    font-family: Arial, Verdana;
+	font-family: 'Signika', sans-serif;
     font-size: 15px;
     padding: 5px;
-    border: 1px solid #b9bdc1;
+    /*border: 1px solid #b9bdc1;*/
     width: 300px;
     color: #797979;
+    display: block;
+    float: left;
 }
 
-.submit-field:focus{
+.submit-form:focus{
+	border: 2px solid #99000;
+}
+#id_title:focus{
 	border: 2px solid #99000;
 }
 
 input{
-	border: none;
+	/*border: none;*/
+	width: 294px;
 }
+
 .submit-button {
     float: right;
     margin:10px 55px 10px 0;
