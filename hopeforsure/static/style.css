@@ -17,15 +17,15 @@ body{
     width: 1000px;
     margin: 0 auto;
     /*font-family: 'Roboto Slab', serif;*/
-    /*font-family: 'Petrona', serif;*/
-	font-family: 'Signika', sans-serif;
+    font-family: 'Petrona', serif;
+/*	font-family: 'Signika', sans-serif;*/
 	letter-spacing: 1px;
 	/*font-family: 'Average Sans', sans-serif;*/
 }
 
 .masthead-container{
 	border-bottom: 1px solid #E5E5E5;
-	height: 80px;
+	height: 70px;
 }
 
 .menu-container{
@@ -89,7 +89,7 @@ h1{
 }
 
 .post-content{
-	width: 575px;
+	width: 600px;
 	float: left;
 }
 
@@ -321,7 +321,7 @@ a{
 	background: #FFFFFF;
 	border-color: #D63333;
 	z-index:1000;
-	top: 106px;
+	top: 96px;
 	width:54px;
 	padding:10px 0 10px 10px;
 	-webkit-border-top-right-radius:10px;
@@ -403,33 +403,34 @@ input{
     padding: 6px 10px;
     cursor: pointer;
     color: #FFFFFF;
+    width: 100px;
  
     text-align: center;
  
     /* Background gradient */
     background: #D63333;
-    background: -moz-linear-gradient
-       (top, #a5b8da 0%, #7089b3 100%);
-    background: -webkit-gradient
-       (linear, 0% 0%, 0% 100%, from(#a5b8da), to(#7089b3));
- 
+
     /* Border style */
     border: 1px solid #990000;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
  
-    /* Box shadow */
-    -moz-box-shadow: inset 0 1px 0 0 #990000;
-    -webkit-box-shadow: inset 0 1px 0 0 #990000;
-    box-shadow: inset 0 1px 0 0 #990000;
-    font-family: 'Roboto Slab', serif;
+}
+
+.field-label{
+	float: left;
+	text-align: left;
 }
 
 .fieldWrapper{
 	display: block;
 	float: left;
 	margin-top: 20px;
+}
+
+.errorlist{
+	color: #990000;
 }
 
 .addthis_default_style .addthis_separator, .addthis_default_style .at300b, .addthis_default_style .at300bo, .addthis_default_style .at300m, .addthis_default_style .at300bs {

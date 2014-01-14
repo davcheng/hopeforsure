@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^next/(?P<current_page>\d+)/$', 'blog.views.nextfiveposts'),
     url(r'^back/(?P<current_page>\d+)/$', 'blog.views.backfiveposts'),
     url(r'^like/(?P<slug>[\w\-]+)/$', 'blog.views.like'),
+    url(r'^post/(?P<slug>[\w\-]+)/$', 'blog.views.post'),
     url(r'^$', 'blog.views.index'),
-    url(r'^(?P<slug>[\w\-]+)/$', 'blog.views.post'),
-    # url(r'^(?P<slug>[\w\-]+)/$', 'blog.views.post'),
+
 )

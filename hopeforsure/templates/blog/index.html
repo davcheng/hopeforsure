@@ -50,7 +50,7 @@
             {% endif %}
         </div>
         <div class="next-button">
-            {% if current_page <= total_pages %}
+            {% if current_page < total_pages %}
             <a  class="next-button-link" href="/next/{{current_page}}/">
                 Next
             </a>

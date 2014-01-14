@@ -7,7 +7,7 @@
             {{post.title}}
         </div>
     </a>
-    <a href="{{post.get_absolute_url}}">
+    <a class="post-content" href="{{post.get_absolute_url}}">
         {% if post.fileType = "Image" %}
         <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
         {% endif %}

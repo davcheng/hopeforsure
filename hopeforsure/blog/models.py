@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm
+from datetime import datetime
 
 import random
 
@@ -23,6 +24,7 @@ class Post(models.Model):
     content = models.CharField(max_length=555)
     fileType = models.CharField(max_length=10, choices=FILE_TYPE_CHOICES)
     published = models.BooleanField(default=False)
+    dateSubmitted = models.DateTimeField(default= lambda: datetime.now())
     created = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
     unlikes = models.IntegerField(default=0)
@@ -36,7 +38,6 @@ class Post(models.Model):
         return u'%s' % self.title
  
     def get_absolute_url(self):
-        # return reverse('blog.views.post', args=(self.postId,))
         return reverse('blog.views.post', args=[self.slug])
 
 
@@ -44,4 +45,5 @@ class UserSubmittedPost(ModelForm):
     class Meta:
         model = Post
         postId = unique_id()
-        exclude = ('published', 'likes', 'unlikes', 'created', 'postId')
+        slug = unique_id()
+        exclude = ('published', 'likes', 'unlikes', 'created', 'slug', 'postId', 'dateSubmitted')
