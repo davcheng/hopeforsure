@@ -13,6 +13,7 @@
     
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript">
+        
         //for likes
         $(document).ready(function(){
             $("a.like").click(function(){
@@ -26,21 +27,39 @@
                 $(curr_elem).parent().attr('class', 'liked-container')
                 return false;
             });
+            
+            //for addthis scroll tab
+            $(function() {
+                var sharetab = $("#sharetab"), tabtop = sharetab.offset();
+                $(window).scroll(function() { 
+                    if($(this).scrollTop() > tabtop.top && sharetab.css('position') != 'fixed') { 
+                        sharetab.css({"position": "fixed", "top":"0px"});
+                    } 
+                    else if($(this).scrollTop() <= tabtop.top && sharetab.css('position') == 'fixed'){
+                        sharetab.css({"position": "absolute", "top": "96px"}); 
+                    }
+               })
+            });
+
         });
 
+        //placeholder (for seach) compatibility for Firefox and IE
+        $("'[placeholder]'").focus(function() {
+          var input = $(this);
+          if (input.val() == input.attr("'placeholder'")) {
+            input.val("''");
+            input.removeClass("'placeholder'");
+          }
+        }).blur(function() {
+          var input = $(this);
+          if (input.val() == "''" || input.val() == input.attr("'placeholder'")) {
+            input.addClass("'placeholder'");
+            input.val(input.attr("'placeholder'"));
+          }
+        }).blur();
 
-        //for addthis scroll tab
-        $(function() {
-            var sharetab = $("#sharetab"), tabtop = sharetab.offset();
-            $(window).scroll(function() { 
-                if($(this).scrollTop() > tabtop.top && sharetab.css('position') != 'fixed') { 
-                    sharetab.css({"position": "fixed", "top":"0px"});
-                } 
-                else if($(this).scrollTop() <= tabtop.top && sharetab.css('position') == 'fixed'){
-                    sharetab.css({"position": "absolute", "top": "96px"}); 
-                }
-           })
-        });
+
+
 
         </script>
 
@@ -53,8 +72,8 @@
             </a>
             <div class="search-bar">
                 <form action="/search/" method="GET">
-                {{ search_form.as_p }}
-                <input type="image" class="search-logo" src="{{STATIC_URL}}search-logo.jpg"/>
+                    <input class="search-field" type="text" name="searchTerms" placeholder="search..." maxlength="50" />
+                    <input class="search-button" type="image" src="{{STATIC_URL}}search-logo.jpg"/>
                 </form>
             </div>
         </div>

@@ -10,14 +10,19 @@ html{
 
 .search-bar{
 	float: right;
-	padding-top: 35px;
-	width: 80px;
+	padding: 35px 15px 0 0;
+	width: 200px;
 }
 
-.search-logo{
-	float: left;
-	width: 35px;
+.search-field{
+	width: 120px;
+	height: 17px;
+	vertical-align: top;
+	margin-top: 3px;
+}
 
+.search-button{
+	width: 30px;
 }
 
 body{
