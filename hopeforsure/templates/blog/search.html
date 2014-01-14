@@ -2,7 +2,7 @@
 
 {% block content %}
     <!--loop through posts-->
-    {% for post in top_posts %}
+    {% for post in search_results %}
         <div class="post-container">
             <a class="post-title-box" href="{{post.get_absolute_url}}">
                 <div class="post-title">

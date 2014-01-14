@@ -8,6 +8,18 @@ html{
 	margin-top: -10px;
 }
 
+.search-bar{
+	float: right;
+	padding-top: 35px;
+	width: 80px;
+}
+
+.search-logo{
+	float: left;
+	width: 35px;
+
+}
+
 body{
 	background-color: #FFFFFF;
     border-width: 0 1px 1px;
@@ -359,7 +371,10 @@ a{
 
 }
 
-
+.submit-message{
+	text-align: center;
+	color: #D63333;
+}
 
 .field-label{
 	font-family: 'Signika', sans-serif;
@@ -385,12 +400,13 @@ a{
 }
 
 .submit-form:focus{
-	border: 2px solid #99000;
+	border: 2px solid #990000;
 }
-#id_title:focus{
-	border: 2px solid #99000;
+/*#id_title:focus,#id_description:focus,#id_content:focus, #id_tags:focus{
+	border: 2px solid #990000;
 }
 
+*/
 input{
 	/*border: none;*/
 	width: 294px;
@@ -447,8 +463,7 @@ footer{
 	line-height: 30px;
     width: 1000px;
     margin: 0 auto;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Petrona', serif;
     position: absolute;
     text-align: center;
-	/*font-family: 'Average Sans', sans-serif;*/
 }

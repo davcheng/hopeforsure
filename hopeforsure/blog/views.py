@@ -1,7 +1,7 @@
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from blog.models import Post, UserSubmittedPost
+from blog.models import Post, UserSubmittedPost, UserSearchForm
 from math import ceil
 import urlparse
 
@@ -12,13 +12,15 @@ total_pages = ceil(post_count/3)
 def index(request):
     # set the current page
     current_page = 1
+
+    search_form = UserSearchForm()
     # get the blog posts that are published
     posts = Post.objects.filter(published=True)[:3]
     # get the posts for the widget but exclude currently displayed posts
     slugs_to_exclude = [post.slug for post in posts] 
     widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
     # now return the rendered template
-    return render(request, 'blog/index.html', {'posts': posts, 'widget_posts': widget_posts, 'current_page': current_page, 'total_pages': total_pages})
+    return render(request, 'blog/index.html', {'search_form': search_form, 'posts': posts, 'widget_posts': widget_posts, 'current_page': current_page, 'total_pages': total_pages})
 
 def nextfiveposts(request, current_page):
     # get the blog posts that are published
@@ -127,12 +129,22 @@ def submit(request):
             # save form
             form.save()
             #TODO: change redirect to submit but with message
-            return HttpResponseRedirect('/submit/') # Redirect after POST
+            return render(request, 'blog/submit.html', {'message': "Thanks for your submission!"}) # Redirect after POST
     else:
         form = UserSubmittedPost() # An unbound form
 
-    return render(request, 'blog/submit.html', {'form': form})
+    return render(request, 'blog/submit.html', {'form': form, 'message': ""})
 
+def search(request):
+    if request.GET:
+        current_page = 1
+        search_term = request.GET.get('searchTerms')
+        search_results = Post.objects.filter(tags__icontains=search_term).order_by('-likes')[:5]
+        slugs_to_exclude = [post.slug for post in search_results] 
+        widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
+        # now return the rendered template
+        return render(request, 'blog/search.html', {'search_results': search_results, 'widget_posts': widget_posts, 'current_page': current_page, 'total_pages': total_pages})
+    return render('blog/index.html')
 
 def about(request):
     # now return the rendered template

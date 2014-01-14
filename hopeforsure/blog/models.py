@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm
 from datetime import datetime
+from django import forms
 
 import random
 
@@ -15,11 +16,14 @@ FILE_TYPE_CHOICES = (
 def unique_id():
     return random.randint(10000000,19999999)
 
+class UserSearchForm(forms.Form):
+    searchTerms = forms.CharField(max_length=255)
+
 class Post(models.Model):
 
     title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255)
-    postId = models.IntegerField(default= lambda: random.randint(10000000,19999999), unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
+    postId = models.IntegerField(default= lambda: random.randint(10000000,19999999))
     description = models.CharField(max_length=255, blank=True, null=True)
     content = models.CharField(max_length=555)
     fileType = models.CharField(max_length=10, choices=FILE_TYPE_CHOICES)

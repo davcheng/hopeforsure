@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^back/(?P<current_page>\d+)/$', 'blog.views.backfiveposts'),
     url(r'^like/(?P<slug>[\w\-]+)/$', 'blog.views.like'),
     url(r'^post/(?P<slug>[\w\-]+)/$', 'blog.views.post'),
+    url(r'^search/', 'blog.views.search'),
     url(r'^$', 'blog.views.index'),
 
 )

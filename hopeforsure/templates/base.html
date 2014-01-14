@@ -46,16 +46,17 @@
 
     </head>
 
-    <body>    
-
-
+    <body>   
         <div class="masthead-container">
             <a href="/">
                 <img class="logo" src="{{STATIC_URL}}logo.jpg"></img>
             </a>
-<!--             <div class="tagline-verse">
-                "Now faith is being <span class="bold">sure of what we hope for</span> and certain of what we do not see." - Hebrews 11:1 
-            </div> -->
+            <div class="search-bar">
+                <form action="/search/" method="GET">
+                {{ search_form.as_p }}
+                <input type="image" class="search-logo" src="{{STATIC_URL}}search-logo.jpg"/>
+                </form>
+            </div>
         </div>
 
         <!--begin nav-bar-->
