@@ -12,15 +12,13 @@ total_pages = ceil(post_count/3)
 def index(request):
     # set the current page
     current_page = 1
-
-    search_form = UserSearchForm()
     # get the blog posts that are published
     posts = Post.objects.filter(published=True)[:3]
     # get the posts for the widget but exclude currently displayed posts
     slugs_to_exclude = [post.slug for post in posts] 
     widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
     # now return the rendered template
-    return render(request, 'blog/index.html', {'search_form': search_form, 'posts': posts, 'widget_posts': widget_posts, 'current_page': current_page, 'total_pages': total_pages})
+    return render(request, 'blog/index.html', {'posts': posts, 'widget_posts': widget_posts, 'current_page': current_page, 'total_pages': total_pages})
 
 def nextfiveposts(request, current_page):
     # get the blog posts that are published
@@ -133,7 +131,7 @@ def submit(request):
     else:
         form = UserSubmittedPost() # An unbound form
 
-    return render(request, 'blog/submit.html', {'form': form, 'message': ""})
+    return render(request, 'blog/submit.html', {'form': form, 'message': "Submit a post!"})
 
 def search(request):
     if request.GET:

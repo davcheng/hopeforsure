@@ -122,9 +122,10 @@ a{
 }
 
 .tagline-verse{
+	margin-top: 50px;
 	font-family: 'Roboto Slab', serif;
 	font-size: 16px;
-	opacity: .3;
+	opacity: .1;
 	color: #D63333;
 	bottom: 5px;
 	display: inline-block;
@@ -378,7 +379,7 @@ a{
 
 .submit-message{
 	text-align: center;
-	color: #D63333;
+	font-family: 'Signika', sans-serif;
 }
 
 .field-label{
@@ -418,6 +419,7 @@ input{
 }
 
 .submit-button {
+	font-size: 12px;
     float: right;
     margin:10px 55px 10px 0;
     line-height: 1;
@@ -429,7 +431,7 @@ input{
     text-align: center;
  
     /* Background gradient */
-    background: #D63333;
+    background: #990000;
 
     /* Border style */
     border: 1px solid #990000;
