@@ -2,14 +2,17 @@
  
 {% block content %}
 <article class="post-container">
-    <a class="post-title-box">
+<!--     <a class="post-title-box">
         <div class="post-title" id="{{post.title}}">
             {{post.title}}
         </div>
-    </a>
+    </a> -->
+    <h1>
+        {{post.title}}
+    </h1>
     <a class="post-content" href="{{post.get_absolute_url}}">
         {% if post.fileType = "Image" %}
-        <img class="post-preview" alt={{post.description}} src={{post.content|safe}}>
+        <img class="feature" alt={{post.description}} src={{post.content|safe}}>
         {% endif %}
 
         {% if post.fileType = "Video" %}
@@ -23,6 +26,9 @@
         <iframe type="text/html" width="600" height="300" src={{post.content|safe}} frameborder="0"></iframe>
         {% endif %}  
     </a>
+    <p class="post-description">
+        {{post.description}}
+    </p>
     <p class="posted-date">
         Posted on
         <time datetime="{{post.created|date:"c"}}">

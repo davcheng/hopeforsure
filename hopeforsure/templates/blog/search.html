@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+    Search Results for: {{search_term}}
     <!--loop through posts-->
     {% for post in search_results %}
         <div class="post-container">

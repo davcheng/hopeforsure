@@ -16,9 +16,6 @@ FILE_TYPE_CHOICES = (
 def unique_id():
     return random.randint(10000000,19999999)
 
-class UserSearchForm(forms.Form):
-    searchTerms = forms.CharField(max_length=255)
-
 class Post(models.Model):
 
     title = models.CharField(max_length=255)
@@ -51,3 +48,6 @@ class UserSubmittedPost(ModelForm):
         postId = unique_id()
         slug = unique_id()
         exclude = ('published', 'likes', 'unlikes', 'created', 'slug', 'postId', 'dateSubmitted')
+
+class UserSearchForm(forms.Form):
+    searchTerms = forms.CharField(max_length=255)

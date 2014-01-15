@@ -1,7 +1,8 @@
 # Create your views here.
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from blog.models import Post, UserSubmittedPost, UserSearchForm
+from blog.models import Post, UserSubmittedPost
+from django.db.models import Q
 from math import ceil
 import urlparse
 
@@ -137,11 +138,12 @@ def search(request):
     if request.GET:
         current_page = 1
         search_term = request.GET.get('searchTerms')
-        search_results = Post.objects.filter(tags__icontains=search_term).order_by('-likes')[:5]
+        #return search results with tags or description LIKE search term(s)
+        search_results = Post.objects.filter(Q(tags__icontains = search_term) | Q(description__icontains= search_term)).order_by('-likes')[:5]
         slugs_to_exclude = [post.slug for post in search_results] 
         widget_posts = Post.objects.filter(published=True).exclude(slug__in=slugs_to_exclude).order_by('?')[:5]
         # now return the rendered template
-        return render(request, 'blog/search.html', {'search_results': search_results, 'widget_posts': widget_posts, 'current_page': current_page, 'total_pages': total_pages})
+        return render(request, 'blog/search.html', {'search_term': search_term, 'search_results': search_results, 'widget_posts': widget_posts, 'current_page': current_page, 'total_pages': total_pages})
     return render('blog/index.html')
 
 def about(request):
