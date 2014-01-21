@@ -2,15 +2,30 @@
 
 {% block content %}
 
-Hello
+<div class="about">
+	<p>
+	Hope for Sure was built as a site to provide hope and encouragement. No matter what trials and burdens come our way, we can be sure that we have an everlasting God whom we can call upon and cling to as our rock and our salvation.
+	</p>
+	<p>
+	"Now faith is being sure of what we hope for and certain of what we do not see." - Hebrews 11:1 
+	</p>
+</div>
 
 {% endblock %}
 
-{% block widget %}
-        <!--try to loop through post labels-->
-        <div class="widget">
-            <div class="widget-title">
-                Share on Facebook!
-            </div>
+
+
+{% block addthis %}
+    <div id="sharetab">
+        <!-- AddThis Button BEGIN -->
+        <div id="addthisbutton" class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_pinterest_share"></a>
+        <a class="addthis_button_google_plusone_share"></a>
         </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a764f2335d0f86"></script>
+        <!-- AddThis Button END -->
+    </div>
 {% endblock %}

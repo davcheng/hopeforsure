@@ -7,13 +7,14 @@
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}style.css">
         <link href='http://fonts.googleapis.com/css?family=Petrona|Signika' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+        <link rel="icon" type="image/jpg" href="http://www.davcheng.com/resources/img/mt-hood.jpg">
+        
         <title>
             Hope For Sure
         </title>
     
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript">
-        
         //for likes
         $(document).ready(function(){
             $("a.like").click(function(){
@@ -27,7 +28,7 @@
                 $(curr_elem).parent().attr('class', 'liked-container')
                 return false;
             });
-            
+
             //for addthis scroll tab
             $(function() {
                 var sharetab = $("#sharetab"), tabtop = sharetab.offset();

@@ -35,7 +35,10 @@
                     </a>
                     <a class="liked"><span class="updated-likes">{{post.likes}}</span> Nice!</a>
             </div>
-
+            
+            <div class="tags">
+                <span class="bold">tags:</span> {{post.tags}}
+            </div>
         </div>
     {% endfor %}
         <!--begin next and back buttons-->
@@ -48,7 +51,7 @@
             {% endif %}
         </div>
         <div class="next-button">
-            {% if current_page <= total_pages %}
+            {% if current_page < total_pages %}
             <a  class="next-button-link" href="/top/next/{{current_page}}/">
                 Next
             </a>

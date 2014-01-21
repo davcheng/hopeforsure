@@ -10,6 +10,9 @@
     <h1>
         {{post.title}}
     </h1>
+    <p class="post-description">
+        {{post.description}}
+    </p>
     <a class="post-content" href="{{post.get_absolute_url}}">
         {% if post.fileType = "Image" %}
         <img class="feature" alt={{post.description}} src={{post.content|safe}}>
@@ -26,15 +29,13 @@
         <iframe type="text/html" width="600" height="300" src={{post.content|safe}} frameborder="0"></iframe>
         {% endif %}  
     </a>
-    <p class="post-description">
-        {{post.description}}
-    </p>
-    <p class="posted-date">
+
+<!--     <p class="posted-date">
         Posted on
         <time datetime="{{post.created|date:"c"}}">
         {{post.created|date}}
         </time>
-    </p>
+    </p> -->
 
     <div class="like-container">
             <a class="like" href="/like/{{post.slug}}">
@@ -45,25 +46,8 @@
             <a class="liked"><span class="updated-likes">{{post.likes}}</span> Nice!</a>
     </div>
 
-	<div class="social-media-sharing">
-		<!-- AddThis Button BEGIN -->
-		<div class="addthis_toolbox addthis_default_style">
-		<a id="addthisbutton" class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-		<a id="addthisbutton" class="addthis_button_tweet"></a>
-		<a id="addthisbutton" class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal" pi:pinit:url="http://www.addthis.com/features/pinterest" pi:pinit:media="http://www.addthis.com/cms-content/images/features/pinterest-lg.png"></a>
-		<a id="addthisbutton" class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-		</div>
-		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a764f2335d0f86"></script>
-		<!-- AddThis Button END -->
-
-		<!-- ShareThis Buttons BEGIN
-		<span class='st_facebook_hcount' displayText='Facebook'></span>
-		<span class='st_twitter_hcount' displayText='Tweet'></span>
-		<span class='st_googleplus_hcount' displayText='Google +'></span>
-		<span class='st_pinterest_hcount' displayText='Pinterest'></span>
-		<span class='st_email_hcount' displayText='Email'></span>
-    	-->
+    <div class="tags">
+        <span class="bold">tags:</span> {{post.tags}}
     </div>
 
 </article>
@@ -124,4 +108,19 @@
             {% endfor %}
         </div>
 
+{% endblock %}
+
+{% block addthis %}
+    <div id="sharetab">
+        <!-- AddThis Button BEGIN -->
+        <div id="addthisbutton" class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_pinterest_share"></a>
+        <a class="addthis_button_google_plusone_share"></a>
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a764f2335d0f86"></script>
+        <!-- AddThis Button END -->
+    </div>
 {% endblock %}

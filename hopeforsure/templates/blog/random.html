@@ -23,12 +23,6 @@
         <iframe type="text/html" width="600" height="300" src={{post.content|safe}} frameborder="0"></iframe>
         {% endif %}  
     </a>
-    <p class="posted-date">
-        Posted on
-        <time datetime="{{post.created|date:"c"}}">
-        {{post.created|date}}
-        </time>
-    </p>
 
     <div class="like-container">
             <a class="like" href="/like/{{post.slug}}">
@@ -38,7 +32,15 @@
             </a>
             <a class="liked"><span class="updated-likes">{{post.likes}}</span> Nice!</a>
     </div>
-
+    <div class="tags">
+        <span class="bold">tags:</span> {{post.tags}}
+    </div>
+<!--     <p class="posted-date">
+        Posted on
+        <time datetime="{{post.created|date:"c"}}">
+        {{post.created|date}}
+        </time>
+    </p> -->
     <div class="social-media-sharing">
         <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style">
@@ -119,4 +121,19 @@
             {% endfor %}
         </div>
 
+{% endblock %}
+
+{% block addthis %}
+    <div id="sharetab">
+        <!-- AddThis Button BEGIN -->
+        <div id="addthisbutton" class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_pinterest_share"></a>
+        <a class="addthis_button_google_plusone_share"></a>
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a764f2335d0f86"></script>
+        <!-- AddThis Button END -->
+    </div>
 {% endblock %}

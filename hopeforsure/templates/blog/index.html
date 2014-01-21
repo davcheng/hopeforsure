@@ -37,6 +37,9 @@
                     </a>
                     <a class="liked"><span class="updated-likes">{{post.likes}}</span> Nice!</a>
             </div>
+            <div class="tags">
+                <span class="bold">tags:</span> {{post.tags}}
+            </div>
         </div>
     {% endfor %}
 
@@ -50,7 +53,7 @@
             {% endif %}
         </div>
         <div class="next-button">
-            {% if current_page < total_pages %}
+            {% if current_page <= total_pages%}
             <a  class="next-button-link" href="/next/{{current_page}}/">
                 Next
             </a>
@@ -86,7 +89,7 @@
                     <iframe class="widget-post-preview" type="text/html" width="600" height="300" src={{post.content|safe}} frameborder="0"></iframe>
                     {% endif %}  
                 </a>
-                <span class="widget-like-count">{{post.likes}} Likes</span>
+                <span class="widget-like-count">{{post.likes}} Awesome</span>
             <p>
         {% endfor %}
 
